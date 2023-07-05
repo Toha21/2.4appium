@@ -36,19 +36,20 @@ public class ChangeTextTest {
         driver = new AppiumDriver(remoteUrl, desiredCapabilities);
 
     }
-
     @Test
-    public void checkEmptyTextInputTest() {
+    public void checkEmptyTextInputTest1() {
 
         MobileElement el5 = (MobileElement) driver.findElementById("ru.netology.testing.uiautomator:id/userInput");
         el5.click();
-        el5.sendKeys(textEmpty);
+        el5.sendKeys(textToSet);
         MobileElement el6 = (MobileElement) driver.findElementById("ru.netology.testing.uiautomator:id/buttonChange");
         el6.click();
-
+        el5.click();
+        el5.sendKeys(textEmpty);
         MobileElement el4 = (MobileElement) driver.findElementById("ru.netology.testing.uiautomator:id/textToBeChanged");
         el4.click();
 
+        assertEquals(textToSet, el4.getText());
 
     }
 
